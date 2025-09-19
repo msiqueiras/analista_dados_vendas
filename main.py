@@ -30,9 +30,9 @@ while sistema:
                             pedido = False
                             print(40*'-')
                             print('PEDIDO FINALIZADO')
-                            print(40*'-')
-                            pagamento = ut.vender(*lista_pedidos)
-                            print('Total a pagar: R$', pagamento)
+                            pagamento, itens_do_relatorio = ut.vender(*lista_pedidos)
+                            ut.relatorio(pagamento, itens_do_relatorio)
+
                     except ValueError:
                          print('O código digitado não é um número inteiro.')
             
