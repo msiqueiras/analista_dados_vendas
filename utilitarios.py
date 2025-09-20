@@ -80,3 +80,5 @@ def relatorio(total_pagamento, itens_vendidos):
     for i in itens_vendidos:
         print(f'{i[0]}..........R${i[1]:.2f}')
     print(f'Total: R$ {total_pagamento}')
+
+
