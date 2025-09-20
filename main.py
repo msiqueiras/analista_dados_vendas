@@ -1,11 +1,12 @@
-import utilitarios as ut
+import pedido
 
 print(20*'-', 'PYTHON BITES', 20*'-')
 print('Sistema de gerenciamento')
-operacoes = {'Cadastrar vendedor, cliente ou produto': 1,
-            'Realizar venda': 2,
-            'Calcular média de preço por produto': 3,
-            'Gerar relatório da última venda': 4}
+operacoes = {'Cadastrar vendedor': 1,
+             'Cadastrar cliente': 2,
+            'Realizar venda': 3,
+            'Calcular média de preço por produto': 4,
+            'Gerar relatório da última venda': 5}
 for op, cod in operacoes.items():
     print(f'-> [{cod}]..........{op}')
 
@@ -17,7 +18,7 @@ while sistema:
                 print(40*'-')
                 print('CÁRDAPIO PYTHON BITES:')
                 print(40*'-')
-                ut.cardapio(show = True)
+                pedido.cardapio(show = True)
 
                 lista_pedidos = []
                 pedido = True
@@ -30,8 +31,8 @@ while sistema:
                             pedido = False
                             print(40*'-')
                             print('PEDIDO FINALIZADO')
-                            pagamento, itens_do_relatorio = ut.vender(*lista_pedidos)
-                            ut.relatorio(pagamento, itens_do_relatorio)
+                            pagamento, itens_do_relatorio = pedido.vender(*lista_pedidos)
+                            pedido.relatorio(pagamento, itens_do_relatorio)
 
                     except ValueError:
                          print('O código digitado não é um número inteiro.')
