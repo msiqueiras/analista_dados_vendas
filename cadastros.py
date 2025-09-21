@@ -66,14 +66,15 @@ def cadastrar_cliente(lista_clientes):
     nome_completo = str(input('Nome completo:'))
     cpf_errado = True
     while cpf_errado:
-        try:
-            cpf = int(input('CPF:'))
+        cpf = input('CPF: ').strip()
+        if cpf.isdigit() and len(cpf) == 11:
             cpf_errado = False
-        except ValueError:
+        else:
             print('CPF DIGITADO INVÁLIDO. Por favor, digite apenas números')
     dados_cliente = {'Nome completo': nome_completo,
-                     'CPF': cpf}
+                    'CPF': cpf}
     lista_clientes.append(dados_cliente)
+
 
 
 def visualizar_clientes(lista_clientes):
