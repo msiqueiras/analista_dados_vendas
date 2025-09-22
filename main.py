@@ -1,6 +1,7 @@
 import pedido
 import cadastros
 import inicializacao
+import media_produtos_uepa
 
 print(20*'-', 'PYTHON BITES', 20*'-')
 
