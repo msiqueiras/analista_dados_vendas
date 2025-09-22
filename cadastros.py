@@ -3,7 +3,7 @@ def cadastrar_funcionario(lista_funcionarios):
     Coleta dados do usuário e adiciona um novo funcionário à lista
     """
     from random import randint
-    print(10*'-', 'CADASTRO DE FUNCIONÁRIO', )
+    print(10*'-', 'CADASTRO DE FUNCIONÁRIO', 10*'-')
     id_funcionario = randint(1_000_000, 9_999_999)
     nome_completo = str(input('Nome completo:')).title().strip()
     cargo = str(input('Cargo:')).title().strip()

@@ -84,3 +84,44 @@ def relatorio(total_pagamento, itens_vendidos):
     print(f'Total: R$ {total_pagamento:.2f}')
 
 
+# HEITOR -> FUNÇÃO MÉDIA DE PREÇO valor de cada um +/total
+
+def pagar_como(metodos_pagamento, total_a_pagar):
+    """
+    Verificar qual forma de pagamento que o cliente deseja e calcular
+    trocos em caso de pagamento em dinheiro.
+    """
+    print(10*'-', 'MÉTODOS DE PAGAMENTO', 10*'-')
+    for idx, pagamento in enumerate(metodos_pagamento):
+        print(f'[{idx+1}]..........{pagamento}')
+    
+    try:
+        mp = int(input('Qual forma de pagamento? [1,2,3,4]:'))
+        print(66*'-')
+
+        if mp == 4:
+            while True:
+                try:
+                    val_recebido = float(input(f'Valor recebido: R$ '))
+                    troco = val_recebido - total_a_pagar
+                    
+                    if troco >= 0:
+                        print(f'Troco: R$ {troco:.2f}')
+                        break
+
+                    else:
+                        print(f'Valor insuficiente para pagamento. Faltam: R$ {-troco:.2f}.') 
+                        op_insuficiente = input('Deseja inserir mais dinheiro? [S/N]: ').lower().strip()
+                        if op_insuficiente == 'n':
+                            print('Pagamento cancelado.')
+                            return # Encerra a função
+                        
+                except ValueError:
+                    print('Valor inválido. Por favor, digite um número.')
+        print(f'Pagamento realizado via: {metodos_pagamento[mp-1]}')
+    
+        if mp not in [1, 2 ,3 ,4]:
+            print('Código de pagamento inválido. Por favor, digite um código registrado.')
+    
+    except ValueError:
+        print('Código de pagamento inválido. Por favor, digite um número inteiro.')

@@ -21,3 +21,4 @@ import cadastros
 #         cpf_errado = False
 #     except ValueError:
 #         print('CPF DIGITADO INVÁLIDO')
+

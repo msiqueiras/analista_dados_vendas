@@ -1,20 +1,16 @@
 import pedido
 import cadastros
+import inicializacao
 
 print(20*'-', 'PYTHON BITES', 20*'-')
-print('Sistema de gerenciamento')
-operacoes_geral = {'Cadastro ou visualização de funcionário': 1,
-            'Cadastrar ou visualização de cliente': 2,
-            'Realizar venda': 3,
-            'Calcular média de preço por produto': 4,
-            'Gerar relatório da última venda': 5}
-for op, cod in operacoes_geral.items():
-    print(f'-> [{cod}]..........{op}')
 
 funcionarios_empresa = []
 clientes_empresa = []
+metodos_pagamento = ['pix', 'débito', 'crédito', 'dinheiro']
 sistema = True
 while sistema:
+        inicializacao.limpar_tela()
+        inicializacao.menu_principal()
         try:
             qual_op_geral = int(input('Digite um código GERAL de operação:'))
 
@@ -31,19 +27,21 @@ while sistema:
                 pedido.cardapio(show = True)
 
                 lista_pedidos = []
-                pedido = True
-                while pedido:
+                pedir = True
+                while pedir:
                     try:
                         itens_pedidos = int(input('Digite o código do item:'))
                         lista_pedidos.append(itens_pedidos)
                         continuar_pedido = str(input('Deseja continuar pedido? [S/N]')).lower().strip()
                         if continuar_pedido[0] == 'n':
-                            pedido = False
+                            pedir = False
                             print(40*'-')
                             print('PEDIDO FINALIZADO')
-                            pagamento, itens_do_relatorio = pedido.vender(*lista_pedidos)
-                            pedido.relatorio(pagamento, itens_do_relatorio)
-
+                            total_a_pagar, itens_do_relatorio = pedido.vender(*lista_pedidos)
+                            pedido.relatorio(total_a_pagar, itens_do_relatorio)
+                            pedido.pagar_como(metodos_pagamento, total_a_pagar)
+                            print('OBRIGADO E VOLTE SEMPRE!')
+                            
                     except ValueError:
                          print('O código digitado não é um número inteiro.')
             
