@@ -21,7 +21,7 @@ def calcular_medias(produtos):
     media_geral = total_geral / qtd_geral
 
     return media_geral, medias_categorias
-media_geral, medias_categorias = calcular_medias(produtos)
+
 
 # Exibindo os resultados
 #print(f" Média geral dos produtos: R$ {media_geral:.2f}\n")
@@ -29,3 +29,4 @@ media_geral, medias_categorias = calcular_medias(produtos)
 #print(" Média por categoria:")
 #for categoria, media in medias_categorias.items():
 #    print(f" - {categoria}: R$ {media:.2f}")
+
