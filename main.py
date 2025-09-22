@@ -44,7 +44,14 @@ while sistema:
                             
                     except ValueError:
                          print('O código digitado não é um número inteiro.')
-            
+
+
+            if qual_op_geral == 4:
+                ticket_medio, ticket_categoria =  media_produtos_uepa.calcular_medias(pedido.cardapio(show = False))
+                print(f'TICKET MÉDIO: R$ {ticket_medio:.2f}')
+                for k, v in ticket_categoria.items():
+                    print(f'Média de {k}.....R${v:.2f}')                       
+                            
 
             continuar_operacoes = str(input('Deseja realizar outra operação? [S/N]')).lower().strip()
             if continuar_operacoes[0] == 'n':
